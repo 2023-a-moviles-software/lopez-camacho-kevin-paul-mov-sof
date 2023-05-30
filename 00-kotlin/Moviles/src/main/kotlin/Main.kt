@@ -1,4 +1,5 @@
 import java.util.*
+import kotlin.collections.ArrayList
 
 fun main(args: Array<String>) {
     println("Hello World!")
@@ -58,6 +59,68 @@ fun main(args: Array<String>) {
     println(suma.pi)
     println(suma.elevarAlCuadrado(2))
     println(suma.historialSumas)
+
+    //ARREGLOS
+
+    //Tipos de arreglos
+
+    //Arreglo Estatico
+
+    val arregloEstatico: Array<Int> = arrayOf<Int>(1,2,3)
+    println(arregloEstatico)
+
+    //Arreglo Dinamico
+    val arregloDinamico: ArrayList<Int> = arrayListOf<Int>(1,2,3,4,5,6,7,8,9,10)
+
+    //Operadores -> arreglos dinamicos y estaticos
+    // FOR EACH -> UNIT
+    //interar un arreglos
+
+    val respuestaForEach: Unit = arregloDinamico
+        .forEach { valorActual: Int ->
+            println("Valor actual: ${valorActual}")
+        }
+    arregloDinamico.forEach{ println(it) } //it (en ingles eso) significa el elemento iterado
+
+    arregloEstatico
+        .forEachIndexed() { indice: Int, valorActual: Int ->
+            println("Valor ${valorActual} Indice: ${indice}")
+        }
+    println(respuestaForEach)
+
+    //MAP -> mutal el arreglo (Cambiar el arreglo)
+    //1) Eviamos el nuevi valor de la iteracion
+    //2) nos devuelve es un NUEVO arreglo Con los valores modificados
+
+    val respuestaMap: List<Double> = arregloDinamico
+        .map{valorActual: Int ->
+            return@map valorActual.toDouble() +100.00
+        }
+
+    //Filterb -> FITRAR EL ARREGLO
+    //1) Devolver una exprecion (True o Flase)
+    //2) Nuevo Arreglo filtrado
+    val respuestaFilter: List<Int> = arregloDinamico
+        .filter { valorActual: Int -> val moyoresACinco: Boolean = valorActual > 5 // Expresion Condicion
+        return@filter moyoresACinco
+        }
+
+    //OR AND
+    //OR -> ANY (Alguno cumple
+    //AND -> ALL (Todos cumplen)
+
+    val respuestaAny: Boolean = arregloDinamico
+        .any {valorActual: Int ->
+            return@any (valorActual > 5)
+        }
+    println(respuestaAny)
+
+    val respuestaAll: Boolean = arregloDinamico
+        .all {valorActual: Int ->
+            return@all (valorActual > 5)
+        }
+    println(respuestaAll)
+
 }
 abstract class NumerosJava{
     protected val numeroUno: Int
