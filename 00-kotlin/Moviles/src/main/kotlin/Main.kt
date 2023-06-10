@@ -3,6 +3,7 @@ import kotlin.collections.ArrayList
 
 fun main(args: Array<String>) {
     println("Hello World!")
+    //Probar git
 
     println("Program arguments: ${args.joinToString()}")
 
@@ -16,7 +17,7 @@ fun main(args: Array<String>) {
     // val > var (mejor las imutable, solo en caso de variables reasignables usamos var
 
     //Duck Typing
-    var ejemploVariable = " Kevin Lopez "
+    var ejemploVariable = " Kevin Lopez  "
     val edadEjemplo : Int = 12
     ejemploVariable.trim()
     //ejemploVariable = edadEjemplo;
