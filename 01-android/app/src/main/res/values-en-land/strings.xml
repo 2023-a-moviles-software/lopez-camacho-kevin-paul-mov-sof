@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bienvenido" translatable="false">WELCOME LAND</string>
+    <string name="ciclo_vida" translatable="false">LIFECYCLE</string>
+</resources>
