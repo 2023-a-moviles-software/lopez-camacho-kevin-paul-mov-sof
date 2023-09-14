@@ -1,11 +1,11 @@
-package com.example.examen1b
+package com.example.examen2b
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class EditarMarca1 : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_editar_marca1)
+        setContentView(R.layout.activity_main)
     }
 }

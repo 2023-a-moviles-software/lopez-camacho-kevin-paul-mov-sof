@@ -21,7 +21,7 @@ class EditarZapato : AppCompatActivity() {
 
         //Asignar valores a modoficar a la interfaz
         val idMarca = findViewById<EditText>(R.id.et_edit_idmarca)
-        idMarca.setText(IDmodificar.idMarca)
+        //idMarca.setText(IDmodificar.idMarca)
         val nombre = findViewById<EditText>(R.id.et_edit_nombre)
         nombre.setText(IDmodificar.nombre)
         val talla = findViewById<EditText>(R.id.et_edit_talla)
@@ -45,7 +45,7 @@ class EditarZapato : AppCompatActivity() {
         var anoEstreno = findViewById<EditText>(R.id.et_edit_anolanzamiento).text.toString()
         var zapatoVigente = findViewById<EditText>(R.id.et_edit_zapatovigente).text.toString()
 
-                arregloZapatos[IDitemSeleccionadoZapato ].idMarca = idMarca
+              //  arregloZapatos[IDitemSeleccionadoZapato ].idMarca = idMarca
                 arregloZapatos[IDitemSeleccionadoZapato ].nombre = nombre
                 arregloZapatos[IDitemSeleccionadoZapato ].talla = talla
                 arregloZapatos[IDitemSeleccionadoZapato ].anoEstreno = anoEstreno

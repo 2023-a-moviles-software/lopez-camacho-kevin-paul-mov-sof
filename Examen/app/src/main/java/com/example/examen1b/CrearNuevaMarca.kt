@@ -26,9 +26,9 @@ class CrearNuevaMarca : AppCompatActivity() {
         val promedioVentasMensual = findViewById<EditText>(R.id.et_newm_ventasmensuales).text.toString()
         val anoLanzamiento = findViewById<EditText>(R.id.et_newm_anolanzamiento).text.toString()
         val marcaVigente = findViewById<EditText>(R.id.et_newm_marcavigente).text.toString()
-        arreglo.add(
-            BMarca("${idMarca}","${nombre}", "${promedioVentasMensual}", "${anoLanzamiento}", "${marcaVigente}")
-        )
+        //arreglo.add(
+           // BMarca("${idMarca}","${nombre}", "${promedioVentasMensual}", "${anoLanzamiento}", "${marcaVigente}")
+        //)
     }
 
     fun irActividad(clase:Class<*>){

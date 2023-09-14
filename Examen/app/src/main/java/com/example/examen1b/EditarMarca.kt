@@ -20,7 +20,7 @@ class EditarMarca : AppCompatActivity() {
 
         //Asignar valores a modoficar a la interfaz
         val idMarca = findViewById<EditText>(R.id.et_editm_idmarca)
-        idMarca.setText(IDmodificar.idMarca)
+       // idMarca.setText(IDmodificar.idMarca)
         val nombre = findViewById<EditText>(R.id.et_editm_nombre)
         nombre.setText(IDmodificar.nombre)
         val promedioVentasMensual = findViewById<EditText>(R.id.et_editm_ventasmensuales)
@@ -43,7 +43,7 @@ class EditarMarca : AppCompatActivity() {
         var promedioVentasMensual = findViewById<EditText>(R.id.et_editm_ventasmensuales).text.toString()
         var anoLanzamiento = findViewById<EditText>(R.id.et_editm_anolanzamiento).text.toString()
         var marcaVigente = findViewById<EditText>(R.id.et_editm_marcavigente).text.toString()
-        arreglo[IDitemSeleccionado].idMarca = idMarca
+       // arreglo[IDitemSeleccionado].idMarca = idMarca
         arreglo[IDitemSeleccionado].nombre = nombre
         arreglo[IDitemSeleccionado].promedioVentasMensual = promedioVentasMensual
         arreglo[IDitemSeleccionado].anoLanzamiento = anoLanzamiento

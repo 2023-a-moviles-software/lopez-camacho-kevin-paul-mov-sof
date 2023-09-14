@@ -27,9 +27,9 @@ class CrearNuevoZapato : AppCompatActivity() {
         val talla = findViewById<EditText>(R.id.et_new_talla).text.toString()
         val anoEstreno = findViewById<EditText>(R.id.et_new_anolanzamiento).text.toString()
         val zapatoVigente = findViewById<EditText>(R.id.et_new_zapatovigente).text.toString()
-        arregloZapatos.add(
-            BZapato("${idMarca}", "${nombre}",  "${talla}",  "${anoEstreno}",  "${zapatoVigente}")
-        )
+        //arregloZapatos.add(
+           // BZapato("${idMarca}", "${nombre}",  "${talla}",  "${anoEstreno}",  "${zapatoVigente}")
+        //)
     }
 
     fun irActividad(clase:Class<*>){

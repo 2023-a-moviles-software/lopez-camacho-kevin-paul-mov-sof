@@ -10,14 +10,22 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
+import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.QueryDocumentSnapshot
+import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import java.util.Date
 
 class MainActivity : AppCompatActivity() {
-    val arreglo = BbaseMemoriaMarca.arregloBMarca
+    var query: Query? = null
+    val arreglo: ArrayList<BMarca> = arrayListOf()
     var idItemSeleccionado = 0
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         val botonCrearNuevaMarca = findViewById<Button>(R.id.btn_crear_marca)
         botonCrearNuevaMarca.setOnClickListener {
@@ -33,9 +41,43 @@ class MainActivity : AppCompatActivity() {
         )
         listView.adapter = adaptador
         adaptador.notifyDataSetChanged()
-
-        registerForContextMenu(listView)
+        cargarMarcas(adaptador)
     }
+
+    private fun cargarMarcas(adaptador: ArrayAdapter<BMarca>) {
+        val db = Firebase.firestore
+        val marcasRefUnico = db.collection("marcas")
+        limpiarArreglo()
+        adaptador.notifyDataSetChanged()
+        marcasRefUnico
+            .get()
+            .addOnSuccessListener { // it => eso (lo que llegue)
+                for (marca in it){
+                    marca.id
+                    anadirAArregloMarca(marca)
+                }
+                adaptador.notifyDataSetChanged()
+            }
+            .addOnFailureListener {
+                // Errores
+            }
+    }
+
+    fun limpiarArreglo() {arreglo.clear()}
+
+    fun anadirAArregloMarca(
+        marca: QueryDocumentSnapshot
+    ){
+        val nuevaMarca = BMarca(
+            marca.data.get("nombre") as String?,
+            marca.data.get("promedioVentasMensual") as String?,
+            marca.data.get("anoLanzamiento") as String?,
+            marca.data.get("marcaVigente") as String?
+        )
+
+        arreglo.add(nuevaMarca)
+    }
+
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
@@ -103,4 +145,22 @@ class MainActivity : AppCompatActivity() {
         startActivity(intentExplicitoEditar)
     }
 
+    fun crearEjemplo() {
+        val db = Firebase.firestore
+        val ZapatosCreados = db
+            .collection("ejemplo")
+        // .document("id_hijo")
+        // .collection("estudiante")
+        val identificador = Date().time
+        val datosEstudiante = hashMapOf(
+            "nombre" to "Adrian",
+            "graduado" to false,
+            "promedio" to 14.00,
+            "direccion" to hashMapOf(
+                "direccion" to "Mitad del mundo",
+                "numeroCalle" to 1234
+            ),
+            "materias" to listOf("web", "moviles")
+        )
+    }
 }
